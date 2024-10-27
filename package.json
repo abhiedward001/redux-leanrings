@@ -37,17 +37,7 @@
       "last 1 safari version"
     ]
   },
-  "description": "learning redux basics",
-  "main": "index.js",
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/abhiedward001/redux-leanrings.git"
-  },
-  "author": "Abhishek Jaiswal",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/abhiedward001/redux-leanrings/issues"
-  },
-  "homepage": "https://github.com/abhiedward001/redux-leanrings#readme"
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+  }
 }
