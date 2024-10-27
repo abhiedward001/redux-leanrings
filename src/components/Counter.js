@@ -1,42 +1,60 @@
 import { useSelector, useDispatch } from 'react-redux';
+
 import classes from './Counter.module.css';
+import { counterActions } from '../store/index';
+
 
 
 
 const Counter = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); // hook used to dispact an action
+
+  /**
+   * @description below are our action dispatch funcitons
+   */
   const incrementHandler = () => {
-    dispatch({
-      type: 'increment'
-    })
+    dispatch(counterActions.increment());
   }
   const decrementHandler = () => {
-    dispatch({
-      type: 'decrement'
-    })
+    dispatch(counterActions.decrement());
   }
   const incByXHandler = (incVal) => {
-    dispatch({
-      type: 'incbyx',
-      value: incVal
-    })
+    dispatch(counterActions.incbyx(10))
   }
-  const counter = useSelector((state) => state.counter);
-  const toggleCounterHandler = () => {};
+  const toggleCounterHandler = () => {
+    dispatch(counterActions.toggleCounter());
+  };
+
+
+
+  const counter = useSelector((state) => state.counter); // extracting store value through a hook
+  const toggleState = useSelector((state) => state.showToggle);
+
+
 
   return (
     <main className={classes.counter}>
       <h1>Redux Counter</h1>
-      <div className={classes.value}>{counter}</div>
+      {toggleState && <div className={classes.value}>{counter}</div>}
 
       <div>
-        <button onClick={incrementHandler}>
+        <button
+          onClick={incrementHandler}
+          disabled={!toggleState}
+          style={!toggleState ? { backgroundColor: '#D3D3D3' } : {}}>
+
           Increase Counter
         </button>
-        <button onClick={() => incByXHandler(10)}>
+        <button
+          onClick={() => incByXHandler(10)}
+          disabled={!toggleState}
+          style={!toggleState ? { backgroundColor: '#D3D3D3' } : {}}>
           Increase By 10
         </button>
-        <button onClick={decrementHandler}>
+        <button
+          onClick={decrementHandler}
+          disabled={!toggleState}
+          style={!toggleState ? { backgroundColor: '#D3D3D3' } : {}}>
           decrease Counter
         </button>
       </div>

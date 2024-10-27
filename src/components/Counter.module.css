@@ -9,6 +9,7 @@
 }
 
 .counter h1 {
+  border-width: 1px solid black;
   text-transform: uppercase;
   color: #575757;
   margin: 0;
@@ -17,6 +18,7 @@
 
 
 .value {
+  
   font-size: 2rem;
   color: #3c0080;
   margin: 2rem 0;
