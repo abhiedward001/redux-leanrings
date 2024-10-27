@@ -6,6 +6,10 @@ const reducer = (state = { counter: 0 }, action) => {
       return {
         counter: state.counter + 1
       }
+    case 'incbyx':
+      return {
+        counter: state.counter + action.value
+      }
     case 'decrement':
       return {
         counter: state.counter - 1
