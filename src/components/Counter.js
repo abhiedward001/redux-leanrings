@@ -5,14 +5,20 @@ import classes from './Counter.module.css';
 
 const Counter = () => {
   const dispatch = useDispatch();
-  const increment = () => {
+  const incrementHandler = () => {
     dispatch({
       type: 'increment'
     })
   }
-  const decrement = () => {
+  const decrementHandler = () => {
     dispatch({
       type: 'decrement'
+    })
+  }
+  const incByXHandler = (incVal) => {
+    dispatch({
+      type: 'incbyx',
+      value: incVal
     })
   }
   const counter = useSelector((state) => state.counter);
@@ -24,10 +30,13 @@ const Counter = () => {
       <div className={classes.value}>{counter}</div>
 
       <div>
-        <button onClick={increment}>
+        <button onClick={incrementHandler}>
           Increase Counter
         </button>
-        <button onClick={decrement}>
+        <button onClick={() => incByXHandler(10)}>
+          Increase By 10
+        </button>
+        <button onClick={decrementHandler}>
           decrease Counter
         </button>
       </div>
